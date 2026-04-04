@@ -277,7 +277,7 @@ HRESULT STDMETHODCALLTYPE ICoreWebView2_get_AllowSingleSignOnUsingOSPrimaryAccou
 
 HRESULT STDMETHODCALLTYPE ICoreWebView2_CreateCoreWebView2EnvironmentCompleted(GenericObjectWithThis* _this, HRESULT hr, ICoreWebView2Environment* pCoreWebView2Environemnt)
 {
-    GenericObjectWithThis* pCoreWebView2CreateCoreWebView2ControllerCompletedHandler = 
+    GenericObjectWithThis* pCoreWebView2CreateCoreWebView2ControllerCompletedHandler =
         GenericObjectWithThis_MakeAndInitialize(&EPWeather_ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerVtbl, _this->_this, L"pCoreWebView2CreateCoreWebView2ControllerCompletedHandler");
     if (!pCoreWebView2CreateCoreWebView2ControllerCompletedHandler) return E_FAIL;
     HRESULT _hr = pCoreWebView2Environemnt->lpVtbl->CreateCoreWebView2Controller(pCoreWebView2Environemnt, _this->_this->hWnd, pCoreWebView2CreateCoreWebView2ControllerCompletedHandler);
@@ -1450,7 +1450,7 @@ DWORD WINAPI epw_Weather_MainThread(EPWeather* _this)
 
     InterlockedExchange64(&_this->bBrowserBusy, TRUE);
 
-    GenericObjectWithThis* pCoreWebView2CreateCoreWebView2EnvironmentCompletedHandler = 
+    GenericObjectWithThis* pCoreWebView2CreateCoreWebView2EnvironmentCompletedHandler =
         GenericObjectWithThis_MakeAndInitialize(&EPWeather_ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerVtbl, _this, L"pCoreWebView2CreateCoreWebView2EnvironmentCompletedHandler");
     if (!pCoreWebView2CreateCoreWebView2EnvironmentCompletedHandler) goto cleanup;
 #if !defined(_M_ARM64EC)
@@ -1466,7 +1466,7 @@ DWORD WINAPI epw_Weather_MainThread(EPWeather* _this)
     IConnectionPoint* spConnectionPoint = NULL;
     IUnknown* spSink = NULL;
     DWORD dwCookie = 0;
-    GenericObjectWithThis* pNetworkListManager = 
+    GenericObjectWithThis* pNetworkListManager =
         GenericObjectWithThis_MakeAndInitialize(&INetworkListManagerEvents_Vtbl, _this, L"pNetworkListManager");
 
     if (pNetworkListManager)

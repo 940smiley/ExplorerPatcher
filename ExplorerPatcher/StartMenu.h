@@ -181,7 +181,7 @@ interface IImmersiveLauncher10RS
 
 void OpenStartOnMonitor(HMONITOR monitor);
 
-// Slightly tweaked version of function available in Open Shell 
+// Slightly tweaked version of function available in Open Shell
 // (Open-Shell-Menu\Src\StartMenu\StartMenuHelper\StartMenuHelper.cpp)
 LRESULT CALLBACK OpenStartOnCurentMonitorThreadHook(
     int code,

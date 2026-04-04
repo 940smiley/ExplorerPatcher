@@ -1168,7 +1168,7 @@ static BOOL GUI_Build(HDC hDC, HWND hwnd, POINT pt)
         BOOL bWasSpecifiedSectionValid = FALSE;
         FILE* f = fmemopen(pRscr, cbRscr, "r");
         char* line = malloc(MAX_LINE_LENGTH * sizeof(char));
-        wchar_t* text = malloc((MAX_LINE_LENGTH + 3) * sizeof(wchar_t)); 
+        wchar_t* text = malloc((MAX_LINE_LENGTH + 3) * sizeof(wchar_t));
         wchar_t* name = malloc(MAX_LINE_LENGTH * sizeof(wchar_t));
         wchar_t* section = malloc(MAX_LINE_LENGTH * sizeof(wchar_t));
         size_t bufsiz = MAX_LINE_LENGTH, numChRd = 0, tabOrder = 1, currentSection = -1, topAdj = 0;
@@ -1227,8 +1227,8 @@ static BOOL GUI_Build(HDC hDC, HWND hwnd, POINT pt)
                 lastHeading[0] = 0;
                 continue;
             }
-            if (strcmp(line, "Windows Registry Editor Version 5.00\r\n") && 
-                strcmp(line, "\r\n") && 
+            if (strcmp(line, "Windows Registry Editor Version 5.00\r\n") &&
+                strcmp(line, "\r\n") &&
                 (currentSection == -1 || currentSection == _this->section || !strncmp(line, ";T ", 3) || !strncmp(line, ";f", 2) || AuditFile) &&
                 !((!IsThemeActive() || IsHighContrast() || !IsWindows11() || IsDwmExtendFrameIntoClientAreaBrokenInThisBuild()) && !strncmp(line, ";M ", 3))
                 )
@@ -1625,8 +1625,8 @@ static BOOL GUI_Build(HDC hDC, HWND hwnd, POINT pt)
                             {
                                 WCHAR accText[1000];
                                 swprintf_s(
-                                    accText, 
-                                    1000, 
+                                    accText,
+                                    1000,
                                     L"%s %s - Button.",
                                     (_this->dwPageLocation < 0 ?
                                     L"Reached end of the page." :
@@ -2918,7 +2918,7 @@ static BOOL GUI_Build(HDC hDC, HWND hwnd, POINT pt)
                                         &p
                                     );
                                     val = TrackPopupMenu(
-                                        hMenu, 
+                                        hMenu,
                                         TPM_RETURNCMD | TPM_RIGHTBUTTON,
                                         p.x,
                                         p.y,
@@ -3165,7 +3165,7 @@ static BOOL GUI_Build(HDC hDC, HWND hwnd, POINT pt)
                                     (dwType == 2 ? L"Disabled" :
                                         (dwType == 3 ? L"Link" :
                                             (dwType == 4 ? L"Button" :
-                                                (dwType == 5 ? L"Input" : 
+                                                (dwType == 5 ? L"Input" :
                                                     L"List"))))
                                 );
                                 accLen = wcslen(accText);
@@ -3450,7 +3450,7 @@ static BOOL GUI_Build(HDC hDC, HWND hwnd, POINT pt)
         {
             _this->section = _this->last_section;
         }
-        
+
         _this->bCalcExtent = 0;
         InvalidateRect(hwnd, NULL, FALSE);
     }
@@ -3739,7 +3739,7 @@ static LRESULT CALLBACK GUI_WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
                 _this->bShouldAnnounceSelected = TRUE;
                 InvalidateRect(hWnd, NULL, FALSE);
             }
-            return 0; 
+            return 0;
         }
         else if (wParam == 'H' || wParam == VK_F1)
         {
@@ -3905,7 +3905,7 @@ static LRESULT CALLBACK GUI_WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPAR
         return 0;
     }
     else if (uMsg == WM_PAINT)
-    {    
+    {
         PAINTSTRUCT ps;
         HDC hDC = BeginPaint(hWnd, &ps);
 
@@ -4172,10 +4172,10 @@ __declspec(dllexport) int ZZGUI(HWND hWnd, HINSTANCE hInstance, LPSTR lpszCmdLin
         L"Static",
         L"",
         WS_CHILD,
-        10,   
-        10,   
-        100, 
-        100, 
+        10,
+        10,
+        100,
+        100,
         hwnd,
         NULL,
         (HINSTANCE)GetWindowLongPtrW(hwnd, GWLP_HINSTANCE),

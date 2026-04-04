@@ -55,8 +55,8 @@ DEFINE_GUID(IID_OpenControlPanel,
 );
 
 DEFINE_GUID(CLSID_VBScript,
-    0xB54F3741, 
-    0x5B07, 0x11CF, 0xA4, 0xB0, 
+    0xB54F3741,
+    0x5B07, 0x11CF, 0xA4, 0xB0,
     0x00, 0xAA, 0x00, 0x4A, 0x55, 0xE8
 );
 
@@ -372,7 +372,7 @@ inline BOOL IsAppRunningAsAdminMode()
         goto Cleanup;
     }
 
-    // Determine whether the SID of administrators group is enabled in 
+    // Determine whether the SID of administrators group is enabled in
     // the primary access token of the process.
     if (!CheckTokenMembership(NULL, pAdministratorsGroup, &fIsRunAsAdmin))
     {

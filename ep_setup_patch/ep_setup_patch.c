@@ -8,7 +8,7 @@ int WINAPI wWinMain(
     _In_opt_ HINSTANCE hPrevInstance,
     _In_ LPWSTR lpCmdLine,
     _In_ int nShowCmd
-) 
+)
 {
     if (__argc < 3)
     {

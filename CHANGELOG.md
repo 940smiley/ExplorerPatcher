@@ -53,6 +53,7 @@ Tested on OS builds 26100.4946, 26100.5074, 26200.5751, and 26220.6682.
   * When the taskbar shows button labels, remove the extra gap around pinned items
 
 Known issues we will address in the short term:
+
 * Changing weather icon pack to "Microsoft" has no effect.
 * On Nickel (Windows 11 22H2/23H2), when the new Windows 11 Start menu is enabled, using Windows 10 or Windows 10 (ExplorerPatcher) taskbar will crashloop explorer.exe.
 
@@ -192,7 +193,7 @@ Tested on OS builds 22621.3296, 22621.3447, 22621.3527, 22635.3566, 26058.1000, 
 
 * All: Updated some patterns to work with 22635.3430+ (Beta) and recent 24H2 builds. (6d22947)
   * This should fix the Windows 10 start menu crashing and Win+X not working on both aforementioned builds when symbols are not yet downloaded.
-  
+
 ##### 4
 
 * Updates: Support for `ep_make`, a new script which builds ExplorerPatcher locally on your computer. Read more [here](https://github.com/valinet/ep_make). (80592f6)
@@ -419,13 +420,13 @@ Tested on OS build 22621.1555. Installer requires Internet connectivity.
 ##### 2
 
 * Simple Window Switcher
-	* Support for individual list and grouping for UWP apps (implemented grouping and naming enhancements based on using information associated with `AppUserModelID`s)
-	* Ability to switch between global and local window lists when the switcher is shown.
-	* Maintain position in the list when certain events occur, like closing windows or switching between the global and local window lists.
-	* `Del` key closes the currently selected window(s).
-	* Fixed a bug that prevented newly spawned windows while the switcher is open from going to the back of the list.
-	* Fixed a bug that prevented window lists from building properly when windows were slow to close.
-	* Fixed a bug that prevented proper activation of pop-up windows under certain conditions. For example, the switcher is now able to correctly switch to the "Error Checking" window in This PC - right click C: - Properties - Tools - Error checking - Check.
+ 	* Support for individual list and grouping for UWP apps (implemented grouping and naming enhancements based on using information associated with `AppUserModelID`s)
+ 	* Ability to switch between global and local window lists when the switcher is shown.
+ 	* Maintain position in the list when certain events occur, like closing windows or switching between the global and local window lists.
+ 	* `Del` key closes the currently selected window(s).
+ 	* Fixed a bug that prevented newly spawned windows while the switcher is open from going to the back of the list.
+ 	* Fixed a bug that prevented window lists from building properly when windows were slow to close.
+ 	* Fixed a bug that prevented proper activation of pop-up windows under certain conditions. For example, the switcher is now able to correctly switch to the "Error Checking" window in This PC - right click C: - Properties - Tools - Error checking - Check.
 
 ## 22621.1413.54
 
@@ -519,8 +520,8 @@ Please make sure you are connected to the Internet while installing, the applica
   * "When cursor is over the switcher" has the switcher react to the scroll whell and advance/reverse the selection only when the cursor is above the switcher
   * "Always" has the switcher react to the scroll whell and advance/reverse the selection regardless of where the cursor is placed. In this mode, background applications won't receive scroll wheel updates until the switcher is closed, regardless of the "Scroll inactive windows when hovering over them" setting from Windows.
 * sws: Fixed a bug that had the scroll wheel move selections in the opposite direction compared to Windows 7 Alt-Tab's behavior. When enabled, the scrolling up selects the previous window in the list, while scrolling down selects the next window in the list. To obtain the previous behavior, which is to scroll up to select the next window, and to scroll down to select the previous window, set `ScrollWheelInvert` to `1` in `HKCU\Software\ExplorerPatcher\sws` (5cef3b1).
-* sws: Fixed a bug that could unexpectedly move the switcher to another monitor when your cursor was placed on the other monitor, the option to have the switcher display on the monitor the cursor is placed on is enabled and the switcher finished refreshing its data in the background (https://github.com/valinet/sws/commit/8b68539201102801367ef8f3716b9f1260e2dbe5).
-* sws: Fixed a bug that could prevent hotkey associations from being properly cleaned up when you disabled the setting to have a per-application window list (https://github.com/valinet/sws/commit/c5776e5a6a0c5495892a15e16a1def31b225fc51).
+* sws: Fixed a bug that could unexpectedly move the switcher to another monitor when your cursor was placed on the other monitor, the option to have the switcher display on the monitor the cursor is placed on is enabled and the switcher finished refreshing its data in the background (<https://github.com/valinet/sws/commit/8b68539201102801367ef8f3716b9f1260e2dbe5>).
+* sws: Fixed a bug that could prevent hotkey associations from being properly cleaned up when you disabled the setting to have a per-application window list (<https://github.com/valinet/sws/commit/c5776e5a6a0c5495892a15e16a1def31b225fc51>).
 * sws: Fixed a bug that could prevent correct reload of settings when entries were directly deleted from the registry (cbc5f19).
 
 ##### 4
@@ -635,7 +636,7 @@ Please make sure you are connected to the Internet while installing, the applica
 ##### 6
 
 * Fix a bug in the Properties window that had the it fail to display some sections under default settings
-  
+
 ## 22000.675.45
 
 Tested on OS build 22000.675.
@@ -937,7 +938,6 @@ Tested on OS build 22000.434.
 * The updater correctly detects when the current version is a pre-release but the user has switched the update channel to stable and does not suggest the older stable version as an update anymore (multiple reports, #540, #710) (.12)
 * Import/export settings suggests a file name automatically (.15)
 
-
 #### Fixes
 
 * Fixed a bug that prevented the Properties UI's system menu from displaying and working correctly
@@ -999,7 +999,6 @@ Tested on OS build 22000.376.
 * Fixed the context menu not working (and a potential associated crash) of the new Microsoft IME (#598, #588) (.19) (huge thanks to @Simplestas)
 * GUI: Lock `ExplorerFrame` into memory (.20)
 
-
 #### Simple Window Switcher
 
 * Dramatically improved performance, refactored application; switched to building the window lists faster, on demand, so that the proper windows are always displayed (as far as I remember, the latest `IsAltTabWindow` is based on a function called `IsTaskedWindow` ripped straight from AltTab.dll from Windows 7 6.1.7600.16385)
@@ -1035,7 +1034,7 @@ Tested on build 22000.348.
 #### Feature enhancements
 
 * Option to receive pre-release versions, if available, when checking for updates
-* Improved behavior regarding symbol data information; please refer to https://github.com/valinet/ExplorerPatcher/wiki/Symbols for more information (.1)
+* Improved behavior regarding symbol data information; please refer to <https://github.com/valinet/ExplorerPatcher/wiki/Symbols> for more information (.1)
 
 #### Fixes
 
@@ -1063,7 +1062,6 @@ Tested on build 22000.318.
 * Running `ep_setup.exe` again while EP is already installed will now update the program to the latest version. To uninstall, as the previous behavior did, run `ep_setup.exe /uninstall` (.4)
 * Implemented absolute height and width parameters for the Windows 10 switcher. These are especially useful for ultra wide monitors, in a scenario similar to the one described in [this post](https://github.com/valinet/ExplorerPatcher/discussions/110#discussioncomment-1673007) - to configure, set `MaxWidthAbs` and/or `MaxHeightAbs` DWORD values in `HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\ExplorerPatcher\sws` (#110) (.5)
 * Provides a simple mechanism for chainloading a custom library when the shell interface is created, from which you can execute your custom code (subject to change, see [this](https://github.com/valinet/ExplorerPatcher/discussions/408#discussioncomment-1674348) for more details) (#408) (.6)
-
 
 #### Feature enhancements
 
@@ -1096,7 +1094,7 @@ Tested on build 22000.318 and 22000.346 (currently in Windows Insider beta and r
   * Prompt to install available updates - the program will check for updates, download them if any, and prompt you to install them automatically
   * Do not check for updates - the program never checks for updates in the background
   * Of course, you can manually check for updates at any point using "Properties" - "Updates" - "Check for updates". To install the update you were notified about, go to "Properties" - "Updates" - "Install latest version".
-  * When installing an update, you will be prompted using UAC to allow elevation - always check that the update originates from matches what you expect; official updates are currently served via https://github.com/valinet/ExplorerPatcher.
+  * When installing an update, you will be prompted using UAC to allow elevation - always check that the update originates from matches what you expect; official updates are currently served via <https://github.com/valinet/ExplorerPatcher>.
   * Learn more about how to configure updates on your system, including how to set a custom endpoint [here](https://github.com/valinet/ExplorerPatcher/wiki/Configure-updates)
 * Implemented a proper right click menu for the Windows 11 taskbar - it displays the most common options, similar to previous Windows releases and the Windows 10 taskbar, including frequently accessed items like "Taskbar settings", "Task Manager" and "Show the desktop"
 * System tray icons are now left intact when switching between the Windows 10 and Windows 11 taskbars, or when switching builds, reinstalling the application etc. Basically, now, once you set a certain layout for the system tray with the Windows 10 taskbar, it will always be remembered, instead of the annoying behavior where Windows was discarding your choices in order to accommodate the Windows 11 taskbar
@@ -1181,6 +1179,7 @@ Tested on build 22000.282.
 Tested on build 22000.282.
 
 #### New features
+
 * Windows 10 window switcher features new configuration options:
   * Always show switcher on primary monitor
   * Show windows only from current monitor
@@ -1194,9 +1193,11 @@ Tested on build 22000.282.
 * Builds are now automatic, generated as soon as new content is pushed to the repository and compiled on GitHub's infrastructure (.6)
 
 #### Feature enhancements
+
 * Clock context menu options "Adjust date/time" and "Customize notification icons" open in Control Panel instead of Settings
 
 #### Fixes
+
 * Taskbar context menu not displaying properly when using classic theme mitigations should now be fixed
 * Reliability improvements, correct injection, avoid double patching
 * All windows should now be properly detected and included in the Windows 10 window switcher
@@ -1254,7 +1255,6 @@ Please note that this is experimental. For the moment, the preferred installatio
 To enable this, put the 2 DLLs (`ExplorerPatcher.amd64.dll` and `ExplorerPatcher.IA-32.dll`) in a secure folder (for example, `C:\Program Files\ExplorerPatcher`). Then, in that folder, run this command: `regsvr32 ExplorerPatcher.amd64.dll`. After elevation, a message will display informing you of the operation outcome, and if it went well, Explorer will restart displaying the old taskbar.
 
 To uninstall, run `regsvr32 /u ExplorerPatcher.amd64.dll` in the same folder and preferably reboot the computer to unload the DLLs from all applications. Then, the files can be deleted just fine.
-
 
 ## 22000.258.30.6
 
@@ -1369,8 +1369,8 @@ Fixes:
 
 New in this version:
 
-- Compatibility with OS build 22449.1000.0.16.
-- Fixed bug that prevented console from showing when the `AllocConsole` setting was specified in `settings.ini`
+* Compatibility with OS build 22449.1000.0.16.
+* Fixed bug that prevented console from showing when the `AllocConsole` setting was specified in `settings.ini`
 
 ## 22000.168.0.14
 
@@ -1425,28 +1425,28 @@ Offsets are now determined at runtime
 
 The application was tested on builds 22000.1 and 22000.168.
 
-- Library downloads and parses symbols in order to determine function hooking offsets at runtime and saves the data in a "settings.ini" file located in the application folder for future use; the file is invalidated when a new OS build is detected
-- The main executable attempts to determine the location where a jump has to be patched out so that Explorer remains on the 'show old taskbar' code path; it will systematically patch each jz/jnz instruction and will check whether Explorer still runs fine, and, if it does so and does not crash, whether the old taskbar got actually shown; once the offset is determined, it is saved in the "settings.ini" file for future use
-- Please have an unmetered active working Internet connection when running for the first time
-- Messages from the patcher (i.e. install/uninstall successful message, symbol downloading message) will now display in a toast (Windows 10 notification) if possible; when Explorer is not running, it falls back to using standard MessageBox'es
-- Disabled the pre/post build command that restarted sihost.exe in Debug builds
+* Library downloads and parses symbols in order to determine function hooking offsets at runtime and saves the data in a "settings.ini" file located in the application folder for future use; the file is invalidated when a new OS build is detected
+* The main executable attempts to determine the location where a jump has to be patched out so that Explorer remains on the 'show old taskbar' code path; it will systematically patch each jz/jnz instruction and will check whether Explorer still runs fine, and, if it does so and does not crash, whether the old taskbar got actually shown; once the offset is determined, it is saved in the "settings.ini" file for future use
+* Please have an unmetered active working Internet connection when running for the first time
+* Messages from the patcher (i.e. install/uninstall successful message, symbol downloading message) will now display in a toast (Windows 10 notification) if possible; when Explorer is not running, it falls back to using standard MessageBox'es
+* Disabled the pre/post build command that restarted sihost.exe in Debug builds
 
 ## 22000.1.0.4
 
 New in this release
 
-- Win+X combination is now handled and opens the power user menu
+* Win+X combination is now handled and opens the power user menu
 
 Of note from previous releases:
 
-- Start menu is now displayed on monitor containing the cursor when  invoked with the Windows key if the appropriate configuration is made  into the registry (enables a functionality which was previously  available in Windows 8.1). To activate this, follow this tutorial: https://www.tenforums.com/tutorials/5943-start-menu-open-main-last-display-windows-10-a.html
-- The power user menu (Win+X) is now skinned using the system theme, as it was in Windows 10
+* Start menu is now displayed on monitor containing the cursor when  invoked with the Windows key if the appropriate configuration is made  into the registry (enables a functionality which was previously  available in Windows 8.1). To activate this, follow this tutorial: <https://www.tenforums.com/tutorials/5943-start-menu-open-main-last-display-windows-10-a.html>
+* The power user menu (Win+X) is now skinned using the system theme, as it was in Windows 10
 
 ## 22000.1.0.3
 
 Start menu is now displayed on monitor containing the cursor when  invoked with the Windows key if the appropriate configuration is made  into the registry (enables a functionality which was previously  available in Windows 8.1).
 
-To activate this, follow this tutorial: https://www.tenforums.com/tutorials/5943-start-menu-open-main-last-display-windows-10-a.html
+To activate this, follow this tutorial: <https://www.tenforums.com/tutorials/5943-start-menu-open-main-last-display-windows-10-a.html>
 
 ## 22000.1.0.2
 

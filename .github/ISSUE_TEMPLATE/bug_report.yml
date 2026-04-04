@@ -38,7 +38,7 @@ body:
         Windows 11 24H2 26100.2314 ARM64
     validations:
       required: true
-      
+
   - type: textarea
     attributes:
       label: 3rd party tweak software installed
@@ -52,7 +52,7 @@ body:
         Wallpaper Engine
     validations:
       required: true
-      
+
   - type: textarea
     attributes:
       label: Describe the bug
@@ -117,4 +117,5 @@ body:
       placeholder: Drop or paste images or videos to upload.
     validations:
       required: false
+
 

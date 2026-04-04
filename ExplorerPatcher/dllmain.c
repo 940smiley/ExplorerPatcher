@@ -1725,7 +1725,7 @@ BOOL IsPointOnEmptyAreaOfNewTaskbar(POINT pt)
     BSTR elemName = NULL;
     BSTR elemType = NULL;
     BOOL bIsWindows11Version22H2OrHigher = IsWindows11Version22H2OrHigher();
-    
+
     if (SUCCEEDED(hr))
     {
         hr = CoCreateInstance(&CLSID_CUIAutomation8, NULL, CLSCTX_INPROC_SERVER, &IID_IUIAutomation2, &pIUIAutomation2);
@@ -1860,8 +1860,8 @@ LRESULT CALLBACK Shell_TrayWndMouseProc(
 {
     if (!bOldTaskbar &&
         !bNoPropertiesInContextMenu &&
-        nCode == HC_ACTION && 
-        wParam == WM_RBUTTONUP && 
+        nCode == HC_ACTION &&
+        wParam == WM_RBUTTONUP &&
         IsPointOnEmptyAreaOfNewTaskbar(((MOUSEHOOKSTRUCT*)lParam)->pt)
         )
     {
@@ -1874,8 +1874,8 @@ LRESULT CALLBACK Shell_TrayWndMouseProc(
         return 1;
     }
     if (!bOldTaskbar &&
-        bTaskbarAutohideOnDoubleClick && 
-        nCode == HC_ACTION && 
+        bTaskbarAutohideOnDoubleClick &&
+        nCode == HC_ACTION &&
         wParam == WM_LBUTTONUP &&
         IsPointOnEmptyAreaOfNewTaskbar(((MOUSEHOOKSTRUCT*)lParam)->pt)
         )
@@ -2812,7 +2812,7 @@ BOOL explorer_TrackPopupMenuExHook(
     {
         bContainsOwn = CheckIfMenuContainsOwnPropertiesItem(hMenu);
     }
-    
+
     wchar_t wszClassNameOfWindowUnderCursor[200];
     ZeroMemory(wszClassNameOfWindowUnderCursor, 200);
     POINT p; p.x = x; p.y = y;
@@ -3497,7 +3497,7 @@ HWND WINAPI explorerframe_SHCreateWorkerWindowHook(
     HWND result;
     LSTATUS lRes = ERROR_FILE_NOT_FOUND;
     DWORD dwSize = 0;
-    
+
     printf("%x %x\n", dwExStyle, dwStyle);
 
     if (SHRegGetValueFromHKCUHKLMWithOpt(
@@ -3699,7 +3699,7 @@ HRESULT pnidui_CoCreateInstanceHook(
 )
 {
     DWORD dwVal = 0, dwSize = sizeof(DWORD);
-    if (IsEqualGUID(rclsid, &CLSID_ImmersiveShell) && 
+    if (IsEqualGUID(rclsid, &CLSID_ImmersiveShell) &&
         IsEqualGUID(riid, &IID_IServiceProvider) &&
         SHRegGetValueFromHKCUHKLMFunc)
     {
@@ -4691,7 +4691,7 @@ HRESULT STDAPICALLTYPE PeopleBand_DrawTextWithGlowHook(
                                     }
                                 }
 
-                                if (dwWeatherViewMode == EP_WEATHER_VIEW_ICONTEMP || 
+                                if (dwWeatherViewMode == EP_WEATHER_VIEW_ICONTEMP ||
                                     dwWeatherViewMode == EP_WEATHER_VIEW_ICONTEXT ||
                                     dwWeatherViewMode == EP_WEATHER_VIEW_TEMPONLY ||
                                     dwWeatherViewMode == EP_WEATHER_VIEW_TEXTONLY
@@ -4810,7 +4810,7 @@ HRESULT STDAPICALLTYPE PeopleBand_DrawTextWithGlowHook(
                 /*AcquireSRWLockExclusive(&lock_epw);
                 epw = NULL;
                 prev_total_h = 0;
-                InvalidateRect(PeopleButton_LastHWND, NULL, TRUE); 
+                InvalidateRect(PeopleButton_LastHWND, NULL, TRUE);
                 ReleaseSRWLockExclusive(&lock_epw);*/
                 if (hServiceWindowThread) PostThreadMessageW(GetThreadId(hServiceWindowThread), WM_USER + 1, NULL, NULL);
                 //AcquireSRWLockShared(&lock_epw);
@@ -6385,7 +6385,7 @@ void WINAPI LoadSettings(LPARAM lParam)
         ))
         {
             wcscpy_s(wszWeatherTerm, MAX_PATH, L"");
-        }        
+        }
         else
         {
             if (wszWeatherTerm[0] == 0)
@@ -7358,7 +7358,7 @@ HRESULT explorer_DrawThemeBackground(
             DrawTextW(
                 hdc,
                 L"\u2026",
-                -1, 
+                -1,
                 &rc,
                 dwTextFlags
             );
@@ -7513,13 +7513,13 @@ HRESULT explorer_GetThemeMargins(
     /*if (hTheme == 0xB16B00B5)
     {
         printf(
-            "GetThemeMargins %d %d %d - %d %d %d %d\n", 
-            iPartId, 
-            iStateId, 
-            iPropId, 
-            pMargins->cxLeftWidth, 
-            pMargins->cyTopHeight, 
-            pMargins->cxRightWidth, 
+            "GetThemeMargins %d %d %d - %d %d %d %d\n",
+            iPartId,
+            iStateId,
+            iPropId,
+            pMargins->cxLeftWidth,
+            pMargins->cyTopHeight,
+            pMargins->cxRightWidth,
             pMargins->cyBottomHeight
         );
     }*/
@@ -7615,7 +7615,7 @@ HRESULT explorer_DrawThemeTextEx(
     COLORREF bc = GetBkColor(hdc);
     COLORREF fc = GetTextColor(hdc);
     int mode = SetBkMode(hdc, TRANSPARENT);
-    
+
     wchar_t text[200];
     GetWindowTextW(GetForegroundWindow(), text, 200);
 
@@ -7650,7 +7650,7 @@ HRESULT explorer_DrawThemeTextEx(
     DrawTextW(
         hdc,
         pszText,
-        cchText, 
+        cchText,
         pRect,
         dwTextFlags
     );
@@ -8381,31 +8381,31 @@ __declspec(dllexport) HRESULT explorer_CoCreateInstanceHook(REFCLSID rclsid, LPU
                 hr = CInputSwitchControlProxy_CreateInstance(*ppv, riid, ppv);
             }
             // Pff... how this works:
-            // 
+            //
             // * This `CoCreateInstance` call will get a pointer to an IInputSwitchControl interface
             // (the call to here is made from `explorer!CTrayInputIndicator::_RegisterInputSwitch`);
             // the next call on this pointer will be on the `IInputSwitchControl::Init` function.
-            // 
+            //
             // * `IInputSwitchControl::Init`'s second parameter is a number (x) which tells which
             // language switcher UI to prepare (check `IsUtil::MapClientTypeToString` in
             // `InputSwitch.dll`). "explorer" requests the "DESKTOP" UI (x = 0), which is the new
             // Windows 11 UI; if we replace that number with something else, some other UI will
             // be created
-            // 
+            //
             // * ~~We cannot patch the vtable of the COM object because the executable is protected
             // by control flow guard and we would make a jump to an invalid site (maybe there is
             // some clever workaround fpr this as well, somehow telling the compiler to place a certain
             // canary before our trampoline, so it matches with what the runtime support for CFG expects,
             // but we'd have to keep that canary in sync with the one in explorer.exe, so not very
             // future proof).~~ Edit: Not true after all.
-            // 
+            //
             // * Taking advantage of the fact that the call to `IInputSwitchControl::Init` is the thing
             // that happens right after we return from here, and looking on the disassembly, we see nothing
             // else changes `rdx` (which is the second argument to a function call), basically x, besides the
             // very `xor edx, edx` instruction before the call. Thus, we patch that out, and we also do
             // `mov edx, whatever` here; afterwards, we do NOTHING else, but just return and hope that
             // edx will stick
-            // 
+            //
             // * Needless to say this is **HIGHLY** amd64
             /*
             char pattern[2] = {0x33, 0xD2};
@@ -8732,7 +8732,7 @@ BOOL explorer_SetRect(LPRECT lprc, int xLeft, int yTop, int xRight, int yBottom)
     }
 
     bTaskbarSet = TRUE;
-    
+
     StuckRectsData srd;
     DWORD pcbData = sizeof(StuckRectsData);
     RegGetValueW(
@@ -8857,8 +8857,8 @@ BOOL WINAPI explorer_SetWindowCompositionAttribute(HWND hWnd, WINCOMPATTRDATA* p
         return TRUE;
     }
     if (bOldTaskbar && global_rovi.dwBuildNumber >= 22581 &&
-        (GetClassWord(hWnd, GCW_ATOM) == RegisterWindowMessageW(L"Shell_TrayWnd") || 
-         GetClassWord(hWnd, GCW_ATOM) == RegisterWindowMessageW(L"Shell_SecondaryTrayWnd")) && 
+        (GetClassWord(hWnd, GCW_ATOM) == RegisterWindowMessageW(L"Shell_TrayWnd") ||
+         GetClassWord(hWnd, GCW_ATOM) == RegisterWindowMessageW(L"Shell_SecondaryTrayWnd")) &&
         pData->nAttribute == 19 && pData->pData && pData->ulDataSize == sizeof(ACCENTPOLICY))
     {
         UpdateWindowAccentProperties_PatchAttribData(pData);
@@ -10545,9 +10545,9 @@ DWORD Inject(BOOL bIsExplorer)
     FILE* conout;
     AllocConsole();
     freopen_s(
-        &conout, 
+        &conout,
         "CONOUT$",
-        "w", 
+        "w",
         stdout
     );
 #endif

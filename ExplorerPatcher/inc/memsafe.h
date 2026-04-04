@@ -238,7 +238,7 @@ public:
             }
         }
 #else
-        // As of Redstone CoTaskMemRealloc always zero-initializes 
+        // As of Redstone CoTaskMemRealloc always zero-initializes
         // the tail of the allocation.
         size_t cbKeepIntact = cb;
 #endif

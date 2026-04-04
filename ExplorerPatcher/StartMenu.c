@@ -349,7 +349,7 @@ DWORD WINAPI HookStartMenu(HookStartMenuParams* params)
             //// 0x48, 0x89, 0x4c, 0x24, 0x10,
             // int 3
             //0xcc,
-            
+
             // sub rsp, 28h
             0x48, 0x83, 0xec, 0x28,
             // mov rcx, 1111111111111111h; placeholder for DLL path

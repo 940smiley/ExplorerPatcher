@@ -112,7 +112,7 @@ jobs:
               mv "$file" "build/Release/x64/$(basename "$file" .amd64.dll).dll"
             done
           fi
-          
+
           if ls build/Release/ep_taskbar.*.arm64.dll 1> /dev/null 2>&1; then
             mkdir -p build/Release/ARM64
             for file in build/Release/ep_taskbar.*.arm64.dll; do
@@ -250,3 +250,4 @@ jobs:
             build/Release/ep_setup_arm64.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
